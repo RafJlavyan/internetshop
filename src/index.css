@@ -1,13 +1,275 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: #fff;
+  color: #222;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 50px auto;
+}
+
+header {
+  position: relative;
+}
+
+header .logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header ul.nav {
+  float: right;
+  list-style: none;
+}
+
+header ul.nav li {
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: opacity 300ms ease;
+}
+
+header ul.nav li:hover {
+  opacity: 0.5;
+}
+
+header .shop-cart-button {
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+  font-size: 24px;
+}
+
+header .shop-cart-button:hover,
+header .shop-cart-button.active {
+  color: red;
+  transform: scale(1.5);
+}
+
+header .shop-cart {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 450px;
+  background: #fafafa;
+  box-shadow: -5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -5px 5px 15px 5px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shop-cart .item {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  position: relative;
+}
+
+header .shop-cart .item h2 {
+  font-size: 20px;
+  margin: 10px;
+}
+
+header .shop-cart .item b {
+  color: #797979;
+  font-weight: 300;
+}
+
+header .shop-cart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 10px;
+}
+
+header .shop-cart .deleteButton {
+  position: absolute;
+  right: 20px;
+  bottom: 22px;
+  background-color: #fff;
+  padding: 10px 15px;
+  opacity: 0.5;
+  text-align: center;
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+header .shop-cart .deleteButton:hover {
+  transform: scale(1.03);
+  filter: blur(0.5px);
+  border: 1px solid transparent;
+  background-color: inherit;
+  opacity: 1;
+}
+
+header .presentation {
+  margin: 50px 0;
+  background: url("./img/mainbg.webp");
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: multiply;
+  background-color: #979797;
+  position: relative;
+}
+
+header .presentation::after {
+  content: "The best devices and appliances for you";
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 450px;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.15em;
+}
+
+header .presentation::before {
+  content: "at low prices";
+  position: absolute;
+  top: 260px;
+  left: 50px;
+  width: 350px;
+  font-size: 15px;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 0.15em;
+}
+
+header .shop-cart .sum {
+  float: right;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.categories div {
+   display: inline-block;
+   background-color: #f0f0f0;
+   border-radius: 50px;
+   padding:10px 20px; 
+   margin-bottom: 25px;
+   margin-right: 15px;
+   cursor: pointer;
+   border: 1px solid transparent;
+   transition: all 0.3s ease-in-out;
+}
+
+.categories div:hover {
+  border-color: #d8d8d8;
+  transform: scale(1.1);
+}
+
+.full-item {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.822);
+  z-index: 9999;
+  overflow: auto;
+}
+
+.full-item > div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 9px;
+}
+
+
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+main .item {
+  position: relative;
+  width: 30%;
+  margin-bottom: 50px;
+  border: 1px solid black;
+  overflow: hidden;
+  padding: 20px;
+  margin: 20px;
+}
+
+main .item:hover img,
+.full-item img:hover  {
+  transform: scale(1.05);
+}
+
+main .item img,
+.full-item img{
+  width: 100%;
+  height: 300px;
+  transition: 0.3s;
+  border-radius: 10px 10px 0 0;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+main h2,
+p,
+b, 
+.full-item 
+b,
+p,
+b {
+  margin: 10px 0;
+}
+
+main b,.full-item b {
+  color: green;
+}
+
+main .add_to_card,
+.full-item .add_to_card {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background-color: #fff;
+  opacity: 0.5;
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+main .add_to_card:hover,
+.full-item .add_to_card:hover {
+  transform: scale(1.03);
+  filter: blur(0.5px);
+  border: 1px solid transparent;
+  background-color: inherit;
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  margin-top: 100px;
 }
